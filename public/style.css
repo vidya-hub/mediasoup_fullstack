@@ -1,0 +1,67 @@
+* {
+  font-family: Verdana;
+}
+
+.containers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 10px;
+  row-gap: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.vid {
+  flex: 0 1 auto;
+  height: 360px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.btn-hover:hover {
+  background-color: #0056b3;
+  color: white;
+}
+#login {
+  position: relative;
+  /* background-color: #0056b3; */
+}
+
+.btn-hover:hover {
+  background-color: #0056b3;
+  color: white;
+}
+.form-title {
+  width: max-content;
+  text-align: left;
+  align-items: start;
+  padding-top: 10px;
+  font-weight: bold;
+}
+#joinButton {
+  margin-top: 10px;
+  width: 150px;
+}
+.loginCard {
+  position: absolute !important;
+  width: 50%;
+}
+.control-buttons .btn {
+  min-width: 100px; /* Adjust as needed */
+}
+
+.mediaCard {
+  background-color: aquamarine;
+}
+button {
+  max-width: 400px;
+  height: 50px;
+}

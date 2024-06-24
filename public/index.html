@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" href="./style.css" />
+
+        <script src="socket.io/socket.io.js"></script>
+        <script src="modules/mediasoupclient.min.js"></script>
+        <script src="modules/EventEmitter.min.js"></script>
+        <script src="RoomClient.js"></script>
+
+        <link href="modules/bootstrap.min.css" rel="stylesheet" />
+        <script src="modules/bootstrap.bundle.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="vh-100 d-flex justify-content-center align-items-center" id="login">
+                <div class="card loginCard">
+                    <div class="card-body text-left">
+                        <div class="form-group">
+                            <p class="form-title">Room Name:</p>
+
+                            <input id="roomidInput" value="123" type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <p class="form-title">User Name:</p>
+
+                            <input id="nameInput" value="user" type="text" class="form-control" />
+                        </div>
+                        <button
+                            id="joinButton"
+                            class="btn btn-primary btn-hover"
+                            onclick="joinRoom(nameInput.value, roomidInput.value)"
+                        >
+                            Join Meeting
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="meetingCard">
+            <div class="container">
+                <div id="control" style="padding-top: 30px" class="hidden">
+                    <br />
+                    <button id="exitButton" onclick="rc.exit()">Exit</button>
+                    <button id="devicesButton" class="hidden" onclick="rc.showDevices()">Devices</button>
+                    <button
+                        id="startAudioButton"
+                        class="hidden"
+                        onclick="rc.produce(RoomClient.mediaType.audio, audioSelect.value)"
+                    >
+                        Open audio
+                    </button>
+                    <button id="stopAudioButton" class="hidden" onclick="rc.closeProducer(RoomClient.mediaType.audio)">
+                        Close audio
+                    </button>
+                    <button
+                        id="startVideoButton"
+                        class="hidden"
+                        onclick="rc.produce(RoomClient.mediaType.video, videoSelect.value)"
+                    >
+                        Open video
+                    </button>
+                    <button id="stopVideoButton" class="hidden" onclick="rc.closeProducer(RoomClient.mediaType.video)">
+                        Close video
+                    </button>
+                    <button id="startScreenButton" class="hidden" onclick="rc.produce(RoomClient.mediaType.screen)">
+                        Open screen
+                    </button>
+                    <button
+                        id="stopScreenButton"
+                        class="hidden"
+                        onclick="rc.closeProducer(RoomClient.mediaType.screen)"
+                    >
+                        Close screen
+                    </button>
+                    <div id="devicesList" class="hidden mt-4 text-center">
+                        Audio:
+                        <select id="audioSelect" class="form-select" style="width: auto"></select>
+                        <br />
+                        Video:
+                        <select id="videoSelect" class="form-select" style="width: auto"></select>
+                    </div>
+                    <br />
+                </div>
+            </div>
+            <div class="container">
+                <div id="videoMedia" class="hidden w-100">
+                    <h4>Local media</h4>
+                    <div id="localMedia" class="containers"></div>
+                    <br />
+                    <h4>Remote media</h4>
+                    <div id="remoteVideos" class="containers"></div>
+                    <div id="remoteAudios"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <footer>
+        <script src="index.js"></script>
+    </footer>
+</html>
