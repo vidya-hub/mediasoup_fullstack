@@ -14,12 +14,13 @@ const getLocalIp = () => {
       return
     }
   })
+  console.log('Local ip ', localIp)
   return localIp
 }
 
 module.exports = {
   listenIp: '0.0.0.0',
-  listenPort: 3016,
+  listenPort: 8080,
   sslCrt: '../ssl/fullchain.pem',
   sslKey: '../ssl/privkey.pem',
 

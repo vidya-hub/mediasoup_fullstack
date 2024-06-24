@@ -19,6 +19,10 @@ const io = require('socket.io')(httpsServer)
 
 app.use(express.static(path.join(__dirname, '..', 'public')))
 
+app.get('/ping', (req, res) => {
+  res.send('Hello i am here')
+})
+
 httpsServer.listen(config.listenPort, () => {
   console.log('Listening on https://' + config.listenIp + ':' + config.listenPort)
 })
